@@ -1,0 +1,30 @@
+-- DISCLAIMER IM NOT USING SUICIDE AS A BAD TERM THATS JUST WHAT THE EVENT IS CALLED
+ 
+ 
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+local Window = OrionLib:MakeWindow({Name = "Worrcc's hub", HidePremium = false, IntroText = "Worrcc's Hub", SaveConfig = true, ConfigFolder = "OrionTest"})
+ 
+local Bitcoin = Window:MakeTab({
+	Name = "Kaiju Universe",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+ 
+Bitcoin:AddButton({
+	Name = "Die Whenever You Press P",
+	Callback = function()
+      		-- Get the InputService
+local inputService = game:GetService("UserInputService")
+ 
+-- Function to run when P is pressed
+local function onPKeyPressed(input, gameProcessedEvent)
+    if input.KeyCode == Enum.KeyCode.P and not gameProcessedEvent then
+        game:GetService("ReplicatedStorage").Packages.Knit.Services.KaijuService.RF.Suicide:InvokeServer()
+    end
+end
+ 
+-- Bind the function to the P key
+inputService.InputBegan:Connect(onPKeyPressed)
+  	end    
+})
+ 
